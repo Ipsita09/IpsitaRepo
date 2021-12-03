@@ -1,0 +1,95 @@
+import re
+import numpy as np
+class LeetcodePractice:
+    def NumbersList(self,Nums :list[int]) -> list[int]:
+        Nums2 = Nums
+        for i in Nums:
+            count = 0
+            for j in Nums2:
+                if i>j:
+                    count = count+1
+            print(count)
+
+    def NumberevenOdd(self, numlist = list[int]) -> list[int]:
+        resList = []
+        res = []
+        for i,j in enumerate(numlist):
+            str = re.findall(r'\d+',j)
+            resList.append(str)
+
+        for item in resList:
+            for i in item:
+                res.append(i)
+        print(res)
+
+        for j in res:
+            if(int(j)%2 == 0):
+                print("Even number")
+            else:
+                print("Odd number")
+
+    def SubstringCount(self,name: str) -> str:
+        n = len(name)
+        for i in range(n):
+            for j in range(i, n):
+                # printing sustring in range i to j
+                print(name[i:j + 1])
+
+    def mergeTwoLists(self,list1:list[int],list2:list[int]) -> list[int]:
+        list3 = list1 + list2
+        sorted_list = []
+        while list3:
+            min = list3[0]
+            for item in list3:
+                if item < min:
+                    min = item
+
+            sorted_list.append(min)
+            list3.remove(min)
+        print(sorted_list)
+
+    def getValues(self,stringVal:str) -> str:
+        listStrVal = re.sub("[a-zA-Z]"," ",stringVal)
+        listStrVal = re.sub(" +"," ",listStrVal)
+        listStrVal = listStrVal.rstrip().split()
+        print(listStrVal)
+
+    def OddEvenListMerge(self):
+        list1 = [[23,34,56,6,9],[10,12,32,21,100],[10,20,34]]
+        odd_no = []
+        even_no = []
+        for i in list1:
+         for item in i:
+             if (item%2 == 0):
+                 even_no.append(item)
+             else:
+                 odd_no.append(item)
+        test = list(odd_no+even_no)
+        print(test)
+
+    def ListCall(self):
+        list2 =[["John", "john@gmail.com", "john@gmail.com","john23@gmail.com"],["Mary","mary@gmail.com","Mary123@gmail.com"],["Harry","Harry34@gmail.com"]]
+        default_dict = {}
+        for item in list2:
+            key, value = item[0], item[1:]
+            default_dict[key] = set(value)
+        print(default_dict)
+
+    def RevNumber(self, num,rem):
+        if (num == 0):
+            return rem
+        else:
+            return self.RevNumber(num // 10, rem * 10 + num % 10)
+
+
+Leetcode = LeetcodePractice()
+Leetcode.NumbersList([10,34,8,43,21,10,23])
+Leetcode.NumberevenOdd(['abc4','akk200','kol3op','lok9876543pp','pl7865'])
+Leetcode.SubstringCount("IpsitaDas")
+Leetcode.mergeTwoLists([21,34,99,10],[8,17,23,5,1])
+Leetcode.getValues("123opikulolkata78 90 ipjhd")
+Leetcode.OddEvenListMerge()
+Leetcode.ListCall()
+
+a = Leetcode.RevNumber(54321,0)
+print(a)
