@@ -1,0 +1,73 @@
+import re
+from math import sqrt
+
+import numpy as np
+class New:
+
+    def FindCommonEl(self):
+        list2 = [12, 11, 10,9, 10]
+        list3 = [12,11,100,90,80]
+        commonEle = []
+        nonCommonEl = []
+        for i in list2:
+            if i in list3:
+                commonEle.append(i)
+            else:
+                nonCommonEl.append(i)
+
+        for k in list3:
+            if k not in nonCommonEl and k not in commonEle:
+                nonCommonEl.append(k)
+        print("CommonElements",commonEle)
+        print("noncommonElemets",nonCommonEl)
+
+    def NumpyDuplicates(self):
+        arr1 = np.array([10,20,12,8,19,11,12,20,19])
+        arr2 = np.unique(arr1)
+        print(arr2)
+
+    def PatternCheck(self):
+        stringName = "9999999ab999999000101010"
+        strPatttern = re.sub("99999","nine",stringName)
+        print(strPatttern)
+
+    def PaternExtract(self):
+        stringName = "1p 99 190 siih23ah 10"
+        numbers = re.findall(r'\d+',stringName)
+        for i in numbers:
+            print(i)
+
+    def sentenceRotation(self):
+        stringN = "Groupon.is.the.good.company.to.work.for"
+        list1 = stringN.split('.')
+        list1.reverse()
+        stringRes = '.'.join(list1)
+        print(stringRes)
+
+    def GetIpAddress(self):
+        stringV = "198.168.0.0"
+        list2 = stringV.split(".")
+        list3 = []
+        flag =0
+        print(list2)
+        for i in list2:
+            list3.append(int(i))
+        for i in list3:
+            if (0<=i) and (255>=i):
+                flag = 0
+            else:
+                flag = 1
+                break
+        if(flag == 1):
+            print("Its not a ipaddress")
+        else:
+            print("It a ipaddress")
+
+obj = New()
+obj.FindCommonEl()
+obj.PatternCheck()
+obj.NumpyDuplicates()
+obj.PatternCheck()
+obj.PaternExtract()
+obj.sentenceRotation()
+obj.GetIpAddress()
