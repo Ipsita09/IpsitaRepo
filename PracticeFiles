@@ -1,0 +1,55 @@
+class Practice:
+    def houseRob(self,houses:list) -> int:
+        sorted_list = sorted(houses)
+        sum = sorted_list[len(houses)-1]+sorted_list[len(houses)-2]
+        print(sum)
+
+    def ListToDict(self) -> dict:
+        my_list = [20, "Twenty", 50, "Fifty", 10, "Ten", 80, "Eighty"]
+        myDict = {my_list[i]: my_list[i + 1] for i in range(0, len(my_list)-1, 2)}
+        print(myDict)
+
+    def sumofContinousArray(self):
+        list_digits = [-2, -3, 4, -1, -2, 1, 5, -3]
+        sum2 = 0
+        for i in range(len(list_digits)):
+            sum = 0
+            for j in range(i,len(list_digits)):
+                sum = sum + list_digits[j]
+                if (sum2 < sum ):
+                    sum2 = sum
+        print(sum2)
+
+    def nextGreaterElement(self):
+       list_num = [11,13,21,3,78,100]
+       diff = 0
+       max_num = max(list_num)
+       index_max = list_num.index(max_num)
+       for i in range(index_max-1):
+           min = list_num[0]
+           if (min > list_num[i]):
+               min = list_num[i]
+       diff = max_num - min
+       print(diff)
+
+    def getNumber(self):
+        Number  = 1232398765421097
+        string_a = str(Number)
+        for i in range(len(string_a)-1,0,-1):
+            print ("Rev Number",string_a[i])
+
+    def mergeSortedLists(self):
+        list_numbers = [[1,4,5],[1,3,4],[2,6]]
+        new_list = []
+        for i in list_numbers:
+            new_list = new_list + i
+        while new_list:
+            print(new_list)
+
+m = Practice()
+m.houseRob([23,12,10,10,23,23,45,65])
+m.ListToDict()
+m.sumofContinousArray()
+m.nextGreaterElement()
+m.getNumber()
+m.mergeSortedLists()
